@@ -23,8 +23,13 @@ Route::get('/', function () {
 Route::controller(UserController::class)->group(function () {
     Route::get('user', 'index');
     Route::post('user/assign', 'assign');
+    Route::get('user/new', 'new');
+    Route::post('user/create', 'create');
 });
 
 Route::controller(DepartmentController::class)->group(function () {
-    Route::get('/department', 'index');
+    Route::get('department', 'index');
+    Route::get('department/new', 'new');
+    Route::post('department/create', 'create');
+    Route::post('department/delete', 'delete');
 });

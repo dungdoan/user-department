@@ -1,0 +1,18 @@
+select {
+    width: 50%;
+}
+.form-group {
+    margin: 20px 0;
+}
+
+@media screen and (min-width: 992px){
+    #menu .nav-item {
+        margin: 0 15px;
+    }
+        #menu .nav-item:first-child {
+            margin-left: 0;
+        }
+        #menu .nav-item:last-child {
+            margin-right: 0;
+        }
+}

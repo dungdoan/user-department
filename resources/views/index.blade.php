@@ -1,8 +1,10 @@
-<ul>
-    <li>
-        <a href="/user">User</a>
-    </li>
-    <li>
-        <a href="/department">Department</a>
-    </li>
-</ul>
+<html>
+    @include('main.header')
+
+    <body>
+        <div class="container">
+            @include('main.menu')
+        </div>
+    </body>
+@include('main.footer')
+</html>
