@@ -39,6 +39,32 @@ class UserService
     }
 
     /**
+     * Assign user to new department
+     *
+     * @param array $userData
+     * @return void
+     */
+    public function assign($userData)
+    {
+        try {
+            $user = User::where([
+                'id' => $userData['user_id'],
+            ])
+            ->first();
+
+            $user->update(['department_id' => $userData['department']]);
+
+            if ($user->department_id == $userData['department']) {
+                return 'The user has been assigned';
+            }
+
+            return 'The user has not been assigned';
+        } catch (QueryException $e) {
+            return 'The user has not been assigned';
+        }
+    }
+
+    /**
      * Get user by department id
      *
      * @param $departmentId

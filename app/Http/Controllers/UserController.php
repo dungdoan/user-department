@@ -49,16 +49,9 @@ class UserController extends Controller
      */
     public function assign(Request $request)
     {
-        $data = $request->post();
+        $response = $this->userService->assign($request->post());
 
-        $user = User::where([
-            'id' => $data['user_id'],
-        ])
-        ->first();
-
-        $result = $user->update(['department_id' => $data['department']]);
-
-        return Redirect::back();
+        return Redirect::back()->with('message', $response);
     }
 
     /**
@@ -84,6 +77,6 @@ class UserController extends Controller
     public function create(Request $request)
     {
         $response = $this->userService->create($request->post());
-        return redirect('/user')->with('message', $response);;
+        return redirect('/user')->with('message', $response);
     }
 }
